@@ -1,0 +1,33 @@
+A.CREATE BASE
+1.create package.json : npm init -y 
+2.create index.ts in root
+3.change "main" in pachage.json to .ts
+4.npm install typescript -D
+*.if needed : npm install @types/node -D
+5.create tsconfig.json : npx tsc --init 
+6.change "require" to "import" : "type" : "module" in package.json
+
+
+B.RUN PROJECT
+--level 1--
+1.to compile ts : npx tsc index.ts
+2.to check js : node index.js
+
+--level 2--
+1.create server folder at root
+2.create dist folder at root
+3.to redirect the compiled files to dist : "outDir" : "./dist" in tsconfig.json
+4.cut index.ts in server folder
+5.npx tsc
+
+--level 3--
+1.write script in package.json : "start":"npx tsc && node dist/index.js"
+
+--level 4--
+1.npm install ts-node -D
+2.write script in package.json : "start":"npx ts-node server/index.ts"
+3.delete dist folder
+
+C.RUNNING
+1.npm install nodemon -D
+2.npx nodemon
